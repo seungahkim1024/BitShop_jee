@@ -8,5 +8,6 @@
 </head>
 <body>
 
+	<a href="../index">홈으로 이동</a>
 </body>
 </html>
