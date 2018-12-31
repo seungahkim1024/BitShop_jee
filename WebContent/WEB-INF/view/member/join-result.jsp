@@ -9,11 +9,11 @@ String ssn = request.getParameter("ssn");
 String[] arr = ssn.split("");
 String year = arr[0]+arr[1];
 String yearres = "";
-if(!arr[0].equals(0)){
-	yearres = "19"+year;
-}else{
-	yearres = "20"+year;
-}
+	if(!arr[0].equals(0)){
+		yearres = "19"+year;
+	}else{
+		yearres = "20"+year;
+	}
 String month = arr[2]+arr[3];
 String day = arr[4]+arr[5];
 
@@ -21,10 +21,10 @@ String day = arr[4]+arr[5];
 char gender = ssn.charAt(7);
 String genderres = "";
 switch(gender){
-case '1': case '3': genderres = "남자"; break; 
-case '2': case '4': genderres = "여자"; break;
-case '5': case '6': genderres = "외국인"; break;
-case '0': case '7': case '8': case '9': genderres = "오류"; break;
+	case '1': case '3': genderres = "남자"; break; 
+	case '2': case '4': genderres = "여자"; break;
+	case '5': case '6': genderres = "외국인"; break;
+	case '0': case '7': case '8': case '9': genderres = "오류"; break;
 }
 //---------------------------------------------
 String hei = request.getParameter("height");
@@ -33,19 +33,19 @@ String wei = request.getParameter("weight");
 double wei1 = Double.parseDouble(wei);
 double bmi = wei1 / (hei1*hei1);
 String bmires = "";
-if(bmi>40){
-	bmires = "고도비만";
-}else if(bmi>=35){
-	bmires = "중등도비만";
-}else if(bmi>=30){
-	bmires = "경도비만";
-}else if(bmi>=25){
-	bmires = "과체중";
-} else if(bmi>=18.5){
-	bmires = "정상";
-}else{
-	bmires = "저체중";
-}
+	if(bmi>40){
+		bmires = "고도비만";
+	}else if(bmi>=35){
+		bmires = "중등도비만";
+	}else if(bmi>=30){
+		bmires = "경도비만";
+	}else if(bmi>=25){
+		bmires = "과체중";
+	} else if(bmi>=18.5){
+		bmires = "정상";
+	}else{
+		bmires = "저체중";
+	}
 //---------------------------------------------
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
