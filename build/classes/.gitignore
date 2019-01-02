@@ -2,3 +2,5 @@
 /domain/
 /controller/
 /service/
+/pool/
+/command/
