@@ -18,29 +18,29 @@ import command.Command;
 public class AccountController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("+++ 어카운트 서블릿으로 들어옴+++");
-		String action = request.getParameter("action");
+		String cmd = request.getParameter("cmd");
+		String page = request.getParameter("page");
+		String dir = request.getParameter("dir");
+		if(page==null){page = "main";}
+		if(dir==null){
+			String sPath = request.getServletPath();
+			sPath = sPath.replace(".do", "");
+			dir = sPath.substring(1);
+		}
 		/*
 		 if(action==null){
 			action = "move";
 		}  = (action==null) ? "move":action   
 		*/
-		switch((action==null) ? "move":action){
+		switch((cmd==null) ? "move":cmd){
 		case "move" :
 			System.out.println("액션이 이동");
-			Command.move(request, response, "account/main");
-			/*RequestDispatcher rd = request.getRequestDispatcher(Command.VIEW+"account/main"+Command.JSP);
-			rd.forward(request, response);*/
+			Command.move(request, response, dir+"/"+page);
 			break;
 		}
-		
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
