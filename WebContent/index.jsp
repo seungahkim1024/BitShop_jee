@@ -6,19 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>그룹웨어</title>
-<style>
-@charset "UTF-8";
-#title {width : 150px; height :50px; 
-				margin: 0 auto; color: #555; margin-top: 100px}
-#login-outer-tab {width : 80%; margin: 0 auto; margin-top: 50px; 
-				text-align: center}
-#login-inner-tab tr{border: 1px solid gray}
-#login-inner-tab tr td{border: 1px solid gray}
-#login-inner-tab {width: 300px; margin: 0 auto;border: 1px solid gray}
-#userid-input {width: 190px; height: 45px}
-#password-input {width: 190px; height: 45px}
-#login-btn {width: 100px; height: 100px}
-</style>
+<link rel="stylesheet" href="resources/css/style.css" />
 </head>
 <body>
 <div style="width: 100%">
@@ -31,7 +19,7 @@
 				<form id="login-form" action="member.do">
 					<table id="login-inner-tab">
 						<tr>
-							<td><input id="userid-input" name="id"
+							<td><input id="uid" name="uid"
 								type="text" value="test" placeholder="ID" tabindex="1" />
 							</td>
 							<td rowspan="2">
@@ -39,7 +27,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td><input id="password-input" name="pass"
+							<td><input id="upw" name="upw"
 									type="password" value="test" placeholder="PASSWORD"
 									tabindex="2" /> 
 								<input type="hidden" name="cmd" value="login" /> 

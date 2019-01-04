@@ -1,15 +1,27 @@
 package service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import domain.AccountBean;
 
 public class AccountServiceImpl implements AccountService{
+	private ArrayList<AccountBean> list;
+	
+	public AccountServiceImpl() {
+		list = new ArrayList<>();
+	}
 
 	@Override
-	public void createAccount(int money) {
-		// TODO Auto-generated method stub
-		
+	public String createAccount(int money) {
+		String accountNum = "1234";
+		AccountBean account = new AccountBean();
+		account.setAccountNum(createAccountNum());
+		account.setMoney(0);
+		account.setToday(date());
+		list.add(account);
+		return accountNum;
 	}
 
 	@Override
@@ -19,15 +31,27 @@ public class AccountServiceImpl implements AccountService{
 	}
 
 	@Override
-	public AccountBean findAccountNum(String accountNum) {
-		// TODO Auto-generated method stub
-		return null;
+	public String createAccountNum() {
+		String accountNum = "1234";
+		return accountNum;
 	}
 
 	@Override
+	public AccountBean findAccountNum(String accountNum) {
+		AccountBean account = new AccountBean();
+		for(int i =0;i<list.size();i++){
+			if(list.get(i).getAccountNum().equals(accountNum)){
+				account = list.get(i);
+			}
+		}
+		return account;
+	}
+	
+	@Override
 	public String date() {
-		// TODO Auto-generated method stub
-		return null;
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		return sdf.format(date);
 	}
 
 	@Override
@@ -53,4 +77,5 @@ public class AccountServiceImpl implements AccountService{
 		// TODO Auto-generated method stub
 		
 	}
+
 }

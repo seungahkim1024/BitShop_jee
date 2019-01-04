@@ -1,6 +1,5 @@
-/Controller/
-/domain/
-/controller/
-/service/
-/pool/
 /command/
+/controller/
+/domain/
+/pool/
+/service/

@@ -7,7 +7,8 @@ import domain.AccountBean;
 public interface AccountService {
 	// accountNum, today,  money;
 	
-	public void createAccount(int money);
+	public String createAccount(int money);
+	public String createAccountNum(); 
 	
 	public ArrayList<AccountBean> findList();
 	public AccountBean findAccountNum(String accountNum);
