@@ -3,6 +3,7 @@ package service;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import domain.AccountBean;
 
@@ -15,10 +16,10 @@ public class AccountServiceImpl implements AccountService{
 
 	@Override
 	public String createAccount(int money) {
-		String accountNum = "1234";
 		AccountBean account = new AccountBean();
-		account.setAccountNum(createAccountNum());
-		account.setMoney(0);
+		String accountNum = createAccountNum();
+		account.setAccountNum(accountNum);
+		account.setMoney(money);
 		account.setToday(date());
 		list.add(account);
 		return accountNum;
@@ -32,15 +33,19 @@ public class AccountServiceImpl implements AccountService{
 
 	@Override
 	public String createAccountNum() {
-		String accountNum = "1234";
-		return accountNum;
+		Random random = new Random();
+		String res = "";
+		for(int i=0; i<4; i++){
+			res += random.nextInt(10);
+		}
+		return res;
 	}
 
 	@Override
 	public AccountBean findAccountNum(String accountNum) {
 		AccountBean account = new AccountBean();
 		for(int i =0;i<list.size();i++){
-			if(list.get(i).getAccountNum().equals(accountNum)){
+			if(accountNum.equals(list.get(i).getAccountNum())){
 				account = list.get(i);
 			}
 		}

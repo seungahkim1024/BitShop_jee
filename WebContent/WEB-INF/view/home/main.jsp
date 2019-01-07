@@ -33,7 +33,7 @@
 	</tr>
 	<tr style="height: 100px">
 		<td colspan="2">
-		<%@ include file="footer.jsp" %>
+			<%@ include file="footer.jsp" %>
 		</td>
 	</tr>
 </table>

@@ -16,7 +16,7 @@ public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("(1)¸â¹ö¼­ºí¸´À¸·Î µé¾î¿È!!");
+		System.out.println("(1)ë©¤ë²„ì„œë¸”ë¦¿!!");
 		String cmd = request.getParameter("cmd");
 		cmd = (cmd == null) ? "move": cmd;
 		System.out.println("(2)cmd :"+ cmd);
@@ -49,10 +49,16 @@ public class MemberController extends HttpServlet {
 			request.setAttribute("name", "test");
 			request.setAttribute("compo", "login-success");
 			Command.move(request, response, dir, page);
-			System.out.println("(5)¸â¹öÀÇ dir  ====="+ dir);
-			System.out.println("(6)¸â¹öÀÇ page  ====="+ page);
+			System.out.println("(5) dir  ====="+ dir);
+			System.out.println("(6) page  ====="+ page);
 			break;
 		case "move":
+			String dest = request.getParameter("dest");
+			if(dest==null){
+				dest = "NONE";
+			}
+			request.setAttribute("dest", dest);
+			System.out.println("ë©¤ë²„ì»¨íŠ¸ë¡¤ì—ì„œ dest : " + dest);
 			Command.move(request, response, dir, page);
 			break;
 		}

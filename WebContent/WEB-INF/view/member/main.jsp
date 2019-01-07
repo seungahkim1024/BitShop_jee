@@ -1,53 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file = "../home/head.jsp" %>
+<%@ include file = "/WEB-INF/view/home/head.jsp" %>
 <body>
 <table id="wrapper">
 	<tr>
 		<td colspan="2">
-			<h1>비트 쇼핑몰</h1>
+			<%@ include file="/WEB-INF/view/home/header.jsp" %>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<div class="menubar">
-                    <ul>
-                        <li><a href="home.do">홈</a></li>
-                        <li><a href="member.do" ><font color="yellow"> 회원관리 </font></a></li>
-                        <li ><a href="account.do" >계좌관리</a></li>
-                        <li><a href="article.do">게시판</a></li>
-                        <li><a href="admin.do">관리자</a></li>
-                    </ul>
-                </div>
+			<%@ include file="../home/navi-bar.jsp" %>
 		</td>
 	</tr>
 	<tr  style="height: 300px">
-		<td id="side-menu">
-			<table>
-				<tr>
-					<td>회원목록</td>
-				</tr>
-				<tr>
-					<td>회원찾기(이름)</td>
-				</tr>
-				<tr>
-					<td>회원찾기(ID)</td>
-				</tr>
-				<tr>
-					<td>총회원수</td>
-				</tr>
-				<tr>
-					<td>로그인체크</td>
-				</tr>
-				<tr>
-					<td>비밀번호변경</td>
-				</tr>
-				<tr>
-					<td>계정삭제</td>
-				</tr>
-			</table>
+		<td>
+			<%@ include file = "side-menu.jsp" %>
 		</td>
-		<td></td>
+		<td>
+			<%
+			String dest = request.getAttribute("dest").toString();
+			System.out.println("dest :" + dest);
+			switch(dest){
+			case "NONE": 
+				%>
+				<%@ include file="mypage.jsp" %>
+				<%
+				break;
+			case "join-form":
+				%>
+				<%@ include file="join-form.jsp" %>
+				<%
+				break;
+			}
+				%>
+		</td>
 	</tr>
 </table>
 </body>

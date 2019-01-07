@@ -11,7 +11,7 @@ import pool.Constant;
 public class Command {
 	public static void move(HttpServletRequest request, 
 			HttpServletResponse response, String dir, String page) throws ServletException, IOException{
-		System.out.println("Ä¿¸àµå ÁøÀÔ!!!");
+		System.out.println("ì»¤ë©˜ë“œì§„ìž…!!!");
 		String dispatcher = "";
 		if(page.equals("index")){
 			dispatcher = "index"+Constant.JSP;
